@@ -1,5 +1,15 @@
+import sys
+
+
 def format_price(price):
-    pass
+    try:
+        is_digit = round(float(price))
+        output_price = "{:,.0f}".format(is_digit).replace(",", " ")
+        return output_price
+    except (ValueError, TypeError):
+        return None
+
 
 if __name__ == '__main__':
-    pass
+    user_input = sys.argv[1]
+    print(format_price(user_input))
